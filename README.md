@@ -217,4 +217,22 @@ options:
 Use 'vast COMMAND --help' for more info about a command
 ```
 
+## VastAI's Python SDK Usage
+
+Using our [PyPI package](https://pypi.org/project/vastai/) you can use our python SDK class VastAI like so:
+
+```from vastai import VastAI
+
+# Initialize VastAI client
+vast_sdk = VastAI(api_key=MY_API_KEY)
+# start an existing stopped instance
+vast_sdk.start_instance(ID=12345678)
+# stop that instance
+vast_sdk.stop_instance(ID=12345678)
+# create a new instance based on given params (performs search offers + create instance)
+vast_sdk.launch_instance(num_gpus="1", gpu_name="RTX_3090", image="pytorch/pytorch")
+```
+
+Our VastAIBase class should have helpful type hints and all the class methods that should be available on VastAI.
+
 ----

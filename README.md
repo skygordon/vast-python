@@ -221,7 +221,8 @@ Use 'vast COMMAND --help' for more info about a command
 
 Using our [PyPI package](https://pypi.org/project/vastai/) you can use our python SDK class VastAI like so:
 
-```from vastai import VastAI
+```
+from vastai import VastAI
 
 # Initialize VastAI client
 vast_sdk = VastAI(api_key=MY_API_KEY)

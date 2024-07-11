@@ -96,10 +96,17 @@ ID       CUDA  Num  Model        PCIE_BW  vCPUs     RAM  Storage  $/hr     DLPer
 ```
 
 #### Launching Instances
-To create an instance of type 2459368 (using an ID from the search) with the vastai/tensorflow image
-and 32 GB of disk storage
+To create an instance of type 2459368 (using an ID from the search) with the vastai/tensorflow image and 32 GB of disk storage:
 
 ```./vast.py create instance 2459368 --image vastai/tensorflow --disk 32```
+
+*Simplified Instance Launching*
+
+You can now also launch instances with one simple step of defining your machine params and image at the saame time with launch instance.
+For example, to launch a 4x RTX 3090 instance with the pytorch image and 32 GB of disk space located in North America:
+
+```./vast.py launch instance -g RTX_3090 -n 4 -i pytorch/pytorch -d 32.0 -r North_America```
+
 
 ## Install
 

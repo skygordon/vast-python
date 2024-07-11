@@ -100,9 +100,10 @@ To create an instance of type 2459368 (using an ID from the search) with the vas
 
 ```./vast.py create instance 2459368 --image vastai/tensorflow --disk 32```
 
-*Simplified Instance Launching*
+**Simplified Instance Launching**
 
-You can now also launch instances with one simple step of defining your machine params and image at the saame time with launch instance.
+You can now also launch instances with one simple step of defining your search offers params and image/launch info at the same time with launch instance. This combines search offers & create instance into one step.
+
 For example, to launch a 4x RTX 3090 instance with the pytorch image and 32 GB of disk space located in North America:
 
 ```./vast.py launch instance -g RTX_3090 -n 4 -i pytorch/pytorch -d 32.0 -r North_America```

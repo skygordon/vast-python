@@ -4523,11 +4523,23 @@ def show__machine(args):
 
 
 @parser.command(
-    argument("-q", "--quiet", action="store_true", help="only display numeric ids"),
-    usage="vastai show machines [OPTIONS]",
-    help="[Host] Show hosted machines",
+    argument("machine_id", help="ID of the machine to display ports"),
+    usage="vastai display ports <machine_id>",
+    help="Display open ports for a specified machine"
 )
-def show__machines(args):
+def display__ports(args):
+    """
+    Display the open ports for a machine.
+    """
+    req_url = apiurl(args, f"/machines/{args.machine_id}/open_ports")
+    r = http_get(args, req_url)
+    r.raise_for_status()
+    ports = r.json()['ports']
+    if args.raw:
+        print(json.dumps(ports, indent=1))
+    else:
+        for port, details in ports.items():
+            print(f"Port {port}: {details}")
     """
     Show the machines user is offering for rent.
 

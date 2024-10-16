@@ -4639,3 +4639,19 @@ if __name__ == "__main__":
     except (KeyboardInterrupt, BrokenPipeError):
         pass
 
+ 
+@parser.command(
+    argument("instance_id", help="ID of the instance to display ports for", type=int),
+    usage="vast display ports INSTANCE_ID",
+    help="Display open ports for a specified instance.",
+    epilog=deindent("""
+        Displays the open ports for the instance specified by INSTANCE_ID.
+        Example:
+         vast display ports 12345
+    """),
+)
+def display__ports(args):
+    url = apiurl(args, f"/instances/{args.instance_id}/ports/")
+    r = http_get(args, url)
+    r.raise_for_status()
+    print(json.dumps(r.json(), indent=2))

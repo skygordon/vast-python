@@ -4639,3 +4639,27 @@ if __name__ == "__main__":
     except (KeyboardInterrupt, BrokenPipeError):
         pass
 
+ 
+@parser.command(
+    argument("machine_id", help="ID of the machine to display ports", type=int),
+    usage="vastai display ports <machine_id>",
+    help="Display open ports for a specified machine",
+)
+def display__ports(args):
+    """
+    Display the open ports for a machine.
+    """
+    req_url = apiurl(args, f"/machines/{args.machine_id}/open_ports")
+    r = http_get(args, req_url)
+    r.raise_for_status()
+    result = r.json()
+    ports = result.get("ports", {})
+    if args.raw:
+        print(json.dumps(ports, indent=1, sort_keys=True))
+    else:
+        if not ports:
+            print(f"No open ports found for machine {args.machine_id}.")
+        else:
+            print(f"Open ports for machine {args.machine_id}:")
+            for port, mapping in ports.items():
+                print(f"Port {port}: {mapping}")

@@ -3494,7 +3494,7 @@ def show__instance(args):
 )
 def show__instances(args):
     """
-    Shows the stats on the machine the user is renting.
+    print("Hello World")    Shows the stats on the machine the user is renting.
 
     :param argparse.Namespace args: should supply all the command-line options
     :rtype:

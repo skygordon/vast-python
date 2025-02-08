@@ -3855,6 +3855,7 @@ def show__instances(args = {}, extra = {}):
     elif args.raw:
         return rows
     else:
+        print("Hello World")
         display_table(rows, instance_fields)
 
 

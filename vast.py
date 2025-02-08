@@ -3836,7 +3836,6 @@ def show__instances(args = {}, extra = {}):
     :param argparse.Namespace args: should supply all the command-line options
     :rtype:
     """
-    print("Hello World")
     req_url = apiurl(args, "/instances", {"owner": "me"});
     #r = http_get(req_url)
     r = http_get(args, req_url)
@@ -3857,6 +3856,7 @@ def show__instances(args = {}, extra = {}):
         return rows
     else:
         display_table(rows, instance_fields)
+    print("Hello World")
 
 
 

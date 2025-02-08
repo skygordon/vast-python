@@ -3856,6 +3856,7 @@ def show__instances(args = {}, extra = {}):
         return rows
     else:
         display_table(rows, instance_fields)
+    print("Hello World")
 
 
 

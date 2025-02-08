@@ -3830,6 +3830,7 @@ def show__instance(args):
     help="Display user's current instances"
 )
 def show__instances(args = {}, extra = {}):
+    print('Hello World')
     """
     Shows the stats on the machine the user is renting.
 
